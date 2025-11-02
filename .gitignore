@@ -1,0 +1,11 @@
+# Ignore Python cache
+**/__pycache__/
+
+# Ignore environment files
+**/.env*
+
+# Ignore a specific folder (e.g., my_secrets)
+**/datasets/
+**/model/
+
+**/venv/

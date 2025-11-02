@@ -1,0 +1,251 @@
+body {
+  width: 350px;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  padding: 15px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.warning {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  color: #856404;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn.primary {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.btn.small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+#room-code-section, #join-room-section {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+#room-code-input {
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.footer a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.faq h3 {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.faq p {
+  margin-top: 0;
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+#records-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.record-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record-name {
+  flex-grow: 1;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.record-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.no-records {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.room-code {
+  font-weight: bold;
+  font-size: 16px;
+  color: #3498db;
+  background-color: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px dashed #3498db;
+}
+
+.small-text {
+  font-size: 11px;
+  color: #7f8c8d;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* Analyzer Styles */
+.record-selection, .analysis-options {
+  margin-bottom: 15px;
+}
+
+.record-content {
+  border: 1px solid #ddd;
+  padding: 10px;
+  max-height: 100px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.analysis-output {
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f0f8ff;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  line-height: 1.4;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.error {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+select, textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Connection Status */
+.connection-check {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.status {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.online {
+  color: #28a745;
+}
+
+.status.offline {
+  color: #dc3545;
+}
+
+.status.error {
+  color: #ffc107;
+}

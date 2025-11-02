@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1 class="window-title">SignBridge</h1>
+    </header>
+
+    <div id="unsupported-page-msg" class="hidden">
+      <p class="warning">SignBridge works on Google Meet, Zoom, and Microsoft Teams. Please open one of these platforms
+        to use the extension.</p>
+    </div>
+
+    <div id="supported-page-msg" class="hidden">
+      <p class="success">You're on a supported video platform. You can create or join a room.</p>
+    </div>
+
+    <div id="home-view">
+      <div class="button-group">
+        <button id="create-room-btn" class="btn primary">Create Room (Signer)</button>
+        <button id="join-room-btn" class="btn secondary">Join Room (User)</button>
+      </div>
+
+      <div id="room-code-section" class="hidden">
+        <p>Room Code: <span id="room-code-display" class="room-code"></span></p>
+        <p class="small-text">Share this code with others to join your room</p>
+        <button id="copy-room-code" class="btn small">Copy Code</button>
+      </div>
+
+      <div id="join-room-section" class="hidden">
+        <input type="text" id="room-code-input" placeholder="Enter room code">
+        <button id="submit-join-room" class="btn small">Join</button>
+      </div>
+
+      <div class="footer">
+        <a href="#" id="help-link">Help</a>
+        <a href="#" id="records-link">Records</a>
+        <a href="#" id="analyzer-link">AI Analyzer</a>
+        
+      </div>
+
+    </div>
+
+    <div id="help-view" class="hidden">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <h3>How do I create a room?</h3>
+        <p>Click "Create Room" to generate a unique room code. Share this code with others who want to join your
+          meeting.</p>
+
+        <h3>How do I join a room?</h3>
+        <p>Click "Join Room" and enter the room code provided by the signer.</p>
+
+        <h3>What permissions are needed?</h3>
+        <p>The extension needs camera access for sign language recognition and microphone access for speech-to-text
+          functionality.</p>
+
+        <h3>How do I save the transcript?</h3>
+        <p>Transcripts are automatically saved when you end a meeting. You can access them from the Records page.</p>
+      </div>
+      <button id="back-from-help" class="btn secondary">Back</button>
+    </div>
+
+    <div id="records-view" class="hidden">
+      <h2>Meeting Records</h2>
+      <div id="records-list">
+        <p class="no-records">No records found.</p>
+      </div>
+
+
+      <button id="back-from-records" class="btn secondary">Back</button>
+    </div>
+
+    <div id="analyzer-view" class="hidden">
+      <h2>AI Record Analyzer</h2>
+
+      <div class="record-selection">
+        <h3>Select a Record to Analyze</h3>
+        <select id="analyzer-record-select">
+          <option value="">-- Select a record --</option>
+        </select>
+      </div>
+
+      <div id="analyzer-record-details" class="hidden">
+        <h3>Record Preview</h3>
+        <div id="analyzer-record-content" class="record-content"></div>
+
+        <div class="analysis-options">
+          <h3>Analysis Type</h3>
+          <select id="analyzer-type">
+            <option value="summary">Summary</option>
+            <option value="key_points">Key Points</option>
+            <option value="sentiment">Sentiment Analysis</option>
+            <option value="custom">Custom Analysis</option>
+          </select>
+
+          <div id="custom-prompt-container" class="hidden">
+            <textarea id="custom-prompt" placeholder="Enter your custom analysis prompt..."></textarea>
+          </div>
+
+          <button id="analyze-btn" class="btn primary">Analyze</button>
+        </div>
+      </div>
+
+      <div id="analyzer-results" class="hidden">
+        <h3>Analysis Results</h3>
+        <div id="analyzer-output" class="analysis-output"></div>
+        <button id="new-analysis-btn" class="btn secondary">New Analysis</button>
+      </div>
+
+      <div id="analyzer-error" class="error hidden"></div>
+
+      <button id="back-from-analyzer" class="btn secondary">Back</button>
+    
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

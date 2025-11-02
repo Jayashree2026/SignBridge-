@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    
+    .window-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .window-header {
+      background-color: #3498db;
+      color: white;
+      padding: 8px 12px;
+      cursor: move;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    
+    .window-title {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    .window-controls {
+      display: flex;
+      gap: 5px;
+    }
+    
+    .control-btn {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 12px;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    
+    .control-btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .window-body {
+      flex-grow: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    #transcript-text {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: white;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+      white-space: pre-wrap;
+      margin-bottom: 10px;
+    }
+    
+    .window-footer {
+      padding: 8px 10px;
+      background-color: #f1f1f1;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .settings-panel {
+      position: absolute;
+      right: 10px;
+      bottom: 40px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    
+    .settings-group {
+      margin-bottom: 10px;
+    }
+    
+    .settings-group label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+    
+    .settings-group select {
+      width: 100%;
+      padding: 3px;
+      font-size: 12px;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="window-container">
+    <div class="window-header">
+      <div class="window-title">SignBridge - Transcript</div>
+      <div class="window-controls">
+        <button id="settings-btn" class="control-btn" title="Settings">⚙️</button>
+        <button id="end-meeting-btn" class="control-btn" title="End Meeting">⏹️</button>
+      </div>
+    </div>
+    
+    <div class="window-body">
+      <div id="transcript-text"></div>
+    </div>
+    
+    <div class="window-footer">
+      <small>Room: <span id="room-code-display"></span></small>
+      <small>Status: <span id="connection-status">Connected</span></small>
+    </div>
+    
+    <div id="settings-panel" class="settings-panel hidden">
+      <div class="settings-group">
+        <label for="font-select">Font:</label>
+        <select id="font-select">
+          <option value="Arial, sans-serif">Arial</option>
+          <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI</option>
+          <option value="'Courier New', Courier, monospace">Courier New</option>
+          <option value="Georgia, serif">Georgia</option>
+        </select>
+      </div>
+      
+      <div class="settings-group">
+        <label for="font-size-select">Font Size:</label>
+        <select id="font-size-select">
+          <option value="12px">Small</option>
+          <option value="14px" selected>Medium</option>
+          <option value="16px">Large</option>
+          <option value="18px">X-Large</option>
+        </select>
+      </div>
+      
+      <div class="settings-group">
+        <label for="color-select">Text Color:</label>
+        <select id="color-select">
+          <option value="#333" selected>Black</option>
+          <option value="#fff">White</option>
+          <option value="#f00">Red</option>
+          <option value="#00f">Blue</option>
+          <option value="#090">Green</option>
+        </select>
+      </div>
+      
+      <div class="settings-group">
+        <label for="bg-color-select">Background Color:</label>
+        <select id="bg-color-select">
+          <option value="#fff" selected>White</option>
+          <option value="#000">Black</option>
+          <option value="#ffc">Yellow</option>
+          <option value="#cff">Cyan</option>
+          <option value="#fcf">Magenta</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Display room code
+    document.getElementById('room-code-display').textContent = new URLSearchParams(window.location.search).get('roomCode') || 'Unknown';
+  </script>
+</body>
+</html>

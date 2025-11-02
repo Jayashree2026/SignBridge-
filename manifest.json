@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "SignBridge",
+  "version": "1.0",
+  "description": "Real-time sign language translation for video conferencing",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "https://meet.google.com/*",
+    "https://zoom.us/*",
+    "https://teams.microsoft.com/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "SignBridge"
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://meet.google.com/*",
+        "https://zoom.us/*",
+        "https://teams.microsoft.com/*"
+      ],
+      "js": ["content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content/content.css","content/content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

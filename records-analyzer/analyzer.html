@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="analyzer.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Record Analyzer</h1>
+    
+    <div class="record-selection">
+      <h2>Select a Record to Analyze</h2>
+      <select id="record-select">
+        <option value="">-- Select a record --</option>
+      </select>
+    </div>
+    
+    <div id="record-details" class="hidden">
+      <h3>Record Details</h3>
+      <div id="record-content" class="record-content"></div>
+      
+      <div class="analysis-options">
+        <h3>Analysis Options</h3>
+        <select id="analysis-type">
+          <option value="summary">Summary</option>
+          <option value="key_points">Key Points</option>
+          <option value="sentiment">Sentiment Analysis</option>
+          <option value="custom">Custom Analysis</option>
+        </select>
+        
+        <div id="custom-prompt-container" class="hidden">
+          <textarea id="custom-prompt" placeholder="Enter your custom analysis prompt..."></textarea>
+        </div>
+        
+        <button id="analyze-btn" class="btn primary">Analyze</button>
+      </div>
+    </div>
+    
+    <div id="analysis-results" class="hidden">
+      <h3>Analysis Results</h3>
+      <div id="analysis-output" class="analysis-output"></div>
+      <button id="new-analysis-btn" class="btn secondary">New Analysis</button>
+    </div>
+    
+    <div id="error-message" class="error hidden"></div>
+  </div>
+  
+  <script src="analyzer.js"></script>
+</body>
+</html>
